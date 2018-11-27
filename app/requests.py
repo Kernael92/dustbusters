@@ -31,8 +31,30 @@ def get_location(stName):
 
         if get_locations_response['candidates']:
             location_results_list = get_locations_response['candidates']
-            location_results = process_results(location_results_list)
+            location_results = process_candidates(location_results_list)
     return location_results
+
+def process_candidates(location_list):
+    '''
+    Function that processes the location result and transform them to a list of objects
+    '''
+    location_results = []
+    for location_item in location_list:
+        placeName = location_item.get('placeName')
+        stAddr = location_item.get('stAddr')
+        stName = location_item.get('stName')
+        zone = location_item.get('zone')
+
+        location_object = Location(placeName,stAddr,stName,zone)
+
+        location_results.append(location_object)
+
+        
+        
+
+    
+    return location_results
+
 
 
 
