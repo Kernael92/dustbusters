@@ -5,3 +5,6 @@ __pycache__/
 instance/
 .vscode/
 .idea
+venv/
+start.sh
+config.py
