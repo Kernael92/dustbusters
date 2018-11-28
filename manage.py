@@ -1,9 +1,10 @@
 from app import create_app,db
 from flask_script import Manager,Server
-from app.models import Employee
+from app.models import Employee,Review
 
 # Creating app instance
 app = create_app('development')
+app = create_app('test')
 
 manager = Manager(app)
 
