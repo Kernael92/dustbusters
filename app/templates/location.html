@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head data-locale="en-US" data-preferred-editor="id" data-user="9157906" data-location="{"minlon",:33.908859,"minlat":-4.678047,"maxlon":41.899078,"maxlat":5.019938}" data-token="b558mlxAd4vG1GUQIuMO7GknrByTyWjo6EXsi7Oo" data-token-secret="PqlP9OGXrHsq423bduaFPjTYEWbHTj0mqQS6tY2K" data-consumer-key="Q09CnRAXDwihla04IrYdOMsl9lvmNHvIBU3waUMp" data-consumer-secret="2QgtdVPL5MKMwIH8seABv7YVjNqVXySBg5Eu7Ayj"data-token-secret="PqlP9OGXrHsq423bduaFPjTYEWbHTj0mqQS6tY2K" data-consumer-key="Q09CnRAXDwihla04IrYdOMsl9lvmNHvIBU3waUMp" data-consumer-secret="2QgtdVPL5MKMwIH8seABv7YVjNqVXySBg5Eu7Ayj" >
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -22,7 +22,7 @@
                         <input type="submit" name="commit" value="Go" class="float">
                         <div class="query_wrapper">
                             <input type="text" name="query" placeholder="search" class="overflow">
-                            <a class="describe_location" ttle="Describe the current location using the search engine" href="#">Current location</a>
+                            <a class="describe_location" title="Describe the current location using the search engine" href="#">Current location</a>
 
 
                         </div>
@@ -58,8 +58,18 @@
                         </select>
                         <input type="submit" name="commit" value="Go" class="routing_go">
                         </div>
-                        <div>
-                            
+                        <div class="line">
+                            <a class="reverse_directions">Reverse Directions</a>
+
+                        </div>
+                        <div class="loader_copy">
+                            <div class="loader">
+                                <img src="/app/static/css/0_drHt8kf034X0309d.gif" alt="">
+
+
+                            </div>
+
+
                         </div>
 
 
@@ -67,9 +77,24 @@
                     </form>
 
                 </div>
+                <ul>
+                    <li id="edit_tab" class="dropdown disabled"  data-original-title="Zoom in to edit the map"></li>
+
+
+                </ul>
             </nav>
+            
 
         </header>
+        <div id="map-ui">
+            <div class="layers-ui">
+                <div id="map" tabindex="2" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom">
+
+                </div>
+
+            
+
+        </div>
         
         
     </body>
