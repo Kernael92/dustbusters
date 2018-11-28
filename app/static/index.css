@@ -1,5 +1,5 @@
 body {
-  background: rgba(26,29,37,1);
+  
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -8,9 +8,10 @@ html {
 	min-height: 100%;
 }
 h1, h2 {
-	font-family: 'Montserrat', sans-serif; font-weight:700;
+	font-family: cursive; font-weight:700;
 	text-transform: uppercase;
-	letter-spacing: 2px
+  letter-spacing: 2px
+  font-size 30px;
 }
 p {
 	font-size: 16px;
@@ -19,9 +20,12 @@ p {
 	letter-spacing: 1px
 }
 header {
-	background: rgba(26,29,37,1);
+	background: rgb(55, 60, 71);
   padding: 10px 0;
   color:white;
+}
+.bg-white{
+  border-radius:10px;
 }
 .head{
   position:relative;
