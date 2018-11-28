@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="icon" href="{{url_for('static',filename='favicon/fav.jpeg')}}" type="image/x-icon">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/animate.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static',filename='about.css') }}" type='text/css'>
+{% endblock %}
+
+
+{%block content %}
+<div class="container ">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class='col-md-8'>
+      <h1 class='text-primary animated fadeInLeft slower'>Who Are We...? </h1>
+      <hr class='animated fadeInUp slower' style="width:40%;text-align:left;margin:30px 0; border:2.5px solid rgb(22, 21, 21);">
+      <h3 class='animated hover1 fadeInRight '>Clean Club is solution based company founded on the values of time management. <br>We believe that spending les time to get work done makes it a more happy day </h3>
+    </div>
+  </div><br> <br>
+  <div class='row'>
+    <div class="col-md-2"></div>
+    <div class='col-md-8'>
+      <h2 class='animated fadeInLeft slower text-primary'>Our Service</h2>
+      <hr class="animated fadeInUp slower" style="width:40%;text-align:left;margin:30px 0; border:2.5px solid rgb(22, 21, 21);">
+      <h3 class='animated fadeInRight hover2'>We get you connected <br> Time is money and for this reason we ease connection between those looking for household jobs  to reliable employers with minimum hustle <br> At the comfort of your house we get you connected</h3>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2 class="text-primary fadeInLeft animated slower">Our Team</h2>
+      <hr class="animated fadeInUp slower" style="width:40%;text-align:left;margin:30px 0; border:2.5px solid rgb(22, 21, 21);">
+      <h3 class='animated fadeInRight hover3'>We are made of four. <br>Passion and ethusiasim is what best defines us. <br>And to get you connected is always our biggest endeavour,<br>Cheers.</h3>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2 class="text-primary">Speak to us...</h2>
+      <hr class="animated fadeInUp slower" style="width:40%;text-align:left;margin:30px 0; border:2.5px solid rgb(22, 21, 21);">
+    </div>
+  </div>
+</div>
+{% endblock %}
