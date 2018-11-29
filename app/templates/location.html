@@ -6,106 +6,23 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
-   <link rel="stylesheet" href="l.geosearch.css" />
         <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
    crossorigin=""></script>
-   <script src="l.control.geosearch.js"></script>
-   <script src="l.geosearch.provider.openstreetmap.js"></script>
-  <script src="l.geosearch.provider.google.js"></script>
-  <script src="l.geosearch.provider.gisfile.js"></script> 
-   
-    <title>Clean Club</title>
-         
+    <title>Clean Club</title>     
     </head>
     <body class="map-layout small" style=" height: 100%; padding: 40px; margin: 20px; border: 20px;">
-        
                 <div id="content"  class="overlay-sidebar">
-                    <!-- <div id="sidebar">
-                            <header class="closed">
-                                    <nav class="primary">
-                                        <div class="search-forms">
-                                            <form method="GET" action="/search" class="search_form">
-                                                
-                                                
-                                                <div class="query_wrapper"><br>
-                                                    <input type="text" name="query" id="query" placeholder="search " autofocus="autofocus" class="overflow">
-                                                    <a class="describe_location" title="Describe the current location using the search engine" href="#">Where is this?</a>
-                                                    <input type="submit" name="commit" value="Go" class="float">
-                                                    <a class="button switch_link" title="Find directions between two points" href="/directions">
-                                                        <img  class="button" src="../static/images/images-6.jpg" style="height:40px;">
-                                                    </a>
-                        
-                        
-                                                </div>
-                                            </form>
-                                            <form method="GET" action="/directions" class="direction_form">
-                                                <div class="header">
-                                                    <span class="icon close"></span>
-                        
-                        
-                                                </div>
-                                                <div class="line">
-                                                    <img class="routing_marker" data-type="from" draggable="true"  src="../static/images/images-3.png" style="height:40px">
-                                                    <span class="force_width">
-                                                    <input type="text" name="route_from" id="route_from" placeholder="From">
-                                                    </span>
-                                                 
-                        
-                                                </div>
-                                                <div class="line">
-                                                    <img class="routing_marker" data-type="from" draggable="true"  src="../static/images/images-1.png"  style="height:40px">
-                                                    <span class="force_width">
-                                                        <input type="text" name="route_to" id="route_to" placeholder="To">
-                                                    </span>
-                                                     
-                            
-                                                </div>
-                                                <div class="line">
-                                                <select class="routing_engines"  name="routing_engines" id="">
-                                                    <option value="0">Bicycle (GraphHopper)</option>
-                                                    <option value="1">Car (GraphHopper) </option>
-                                                    <option value="2"> Car (OSRM) </option>
-                                                    <option value="3">Foot (GraphHopper) </option>
-                                                </select>
-                                                <input type="submit" name="commit" value="Go" class="routing_go">
-                                                </div>
-                                                <div class="line">
-                                                    <a class="reverse_directions" href="#">Reverse Directions</a>
-                        
-                                                </div>
-                                                <div class="loader_copy">
-                                                    <div class="loader">
-                                                        <img src="../static/images/0_drHt8kf034X0309d.gif" style="display: none;">
-                        
-                        
-                                                    </div>
-                        
-                        
-                                                </div>
-                        
-                        
-                        
-                                            </form>
-                        
-                                        </div>
-                                        <div id="flash">
-
-
-                                        </div>
-                                        <div id="browse_status">
-
-                                        </div>
-                                        
-                                    </nav>
-                                    
-                        
-                                </header>
-
-
-                    </div> -->
+                    <div id="sidebar">
+                        <div class="leaflet-control-search leaflet-control search-load">
+                            <label class="search-input" for="searchtext9" style="display: none;"></label>
+                            <input class="search-input" type="text" size="9" autocomplete="off" autocapitalize="off" placeholder="Search" id="searchtext9" style="display: none; max-width: 269px;">
+                            <ul class="search-tooltip" style="display: none;">
+                            <a  class="search-button" href="#" title="search..." style="outline:none"></a>
+                            <div class="search-alert" style="display: none">Location not found</div>
+                            </ul>
+                        </div>       
                     <div id="mapid"  style="height: 800px;">
-                        <script src="OpenLayers.js"></script>
                         <script>
                             var map = L.map('mapid').fitWorld();
                             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia2VybmFlbCIsImEiOiJjanAxcGx3MTgzNndrM3dwaHh0dzBpMXFqIn0.mGDyWnOIyQBL4ACrIVmBCQ', {
@@ -113,16 +30,6 @@
                                 maxZoom: 18,
                                 id: 'mapbox.streets',
                                 accessToken: 'pk.eyJ1Ijoia2VybmFlbCIsImEiOiJjanAxcGx3MTgzNndrM3dwaHh0dzBpMXFqIn0.mGDyWnOIyQBL4ACrIVmBCQ'
-                            }).addTo(map);
-                            new L.Control.GeoSearch({
-                                searchLabel: 'The search string',
-                                notFoundMessage: 'Not found',
-                                position: 'topcenter',
-                                showMarker: true,
-                                selected: 0,
-                                providers: [{name:'GISFile', provider: new L.GeoSearch.Provider.GISFile( {type:'layer', name:'world'})},
-                                {name:'Google', provider: new L.GeoSearch.Provider.Google()},
-                                {name:'OpenStreetMap', provider: new L.GeoSearch.Provider.OpenStreetMap()}]
                             }).addTo(map);
                             var popup = L.popup();
     
@@ -146,6 +53,8 @@
                             }
 
                             map.on('locationfound', onLocationFound);
+                            
+
 
                             
 
