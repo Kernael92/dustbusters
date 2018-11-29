@@ -2,30 +2,39 @@
 <html>
     <head data-locale="en-US" data-preferred-editor="id" data-user="9157906" data-location="{"minlon":33.908859,"minlat":-4.678047,"maxlon":41.899078,"maxlat":5.019938}" data-token="b558mlxAd4vG1GUQIuMO7GknrByTyWjo6EXsi7Oo" data-token-secret="PqlP9OGXrHsq423bduaFPjTYEWbHTj0mqQS6tY2K" data-consumer-key="Q09CnRAXDwihla04IrYdOMsl9lvmNHvIBU3waUMp" data-consumer-secret="2QgtdVPL5MKMwIH8seABv7YVjNqVXySBg5Eu7Ayj"data-token-secret="PqlP9OGXrHsq423bduaFPjTYEWbHTj0mqQS6tY2K" data-consumer-key="Q09CnRAXDwihla04IrYdOMsl9lvmNHvIBU3waUMp" data-consumer-secret="2QgtdVPL5MKMwIH8seABv7YVjNqVXySBg5Eu7Ayj" >
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
+   <link rel="stylesheet" href="l.geosearch.css" />
         <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
    crossorigin=""></script>
-   <title>Clean Club</title>
+   <script src="l.control.geosearch.js"></script>
+   <script src="l.geosearch.provider.openstreetmap.js"></script>
+  <script src="l.geosearch.provider.google.js"></script>
+  <script src="l.geosearch.provider.gisfile.js"></script> 
+   
+    <title>Clean Club</title>
          
     </head>
-    <body class="map-layout small">
+    <body class="map-layout small" style=" height: 100%; padding: 40px; margin: 20px; border: 20px;">
         
                 <div id="content"  class="overlay-sidebar">
-                    <div id="sidebar">
+                    <!-- <div id="sidebar">
                             <header class="closed">
                                     <nav class="primary">
                                         <div class="search-forms">
                                             <form method="GET" action="/search" class="search_form">
-                                                <a class="button switch_link" title="Find directions between two points" href="/directions">
-                                                <img  class="button" src="../static/images/images-6.jpg" style="height:40px;">
-                                                </a>
-                                                <input type="submit" name="commit" value="Go" class="float">
-                                                <div class="query_wrapper">
-                                                    <input type="text" name="query" id="query" placeholder="search Current location" autofocus="autofocus" class="overflow">
-                                                    <a class="describe_location" title="Describe the current location using the search engine" href="#"></a>
+                                                
+                                                
+                                                <div class="query_wrapper"><br>
+                                                    <input type="text" name="query" id="query" placeholder="search " autofocus="autofocus" class="overflow">
+                                                    <a class="describe_location" title="Describe the current location using the search engine" href="#">Where is this?</a>
+                                                    <input type="submit" name="commit" value="Go" class="float">
+                                                    <a class="button switch_link" title="Find directions between two points" href="/directions">
+                                                        <img  class="button" src="../static/images/images-6.jpg" style="height:40px;">
+                                                    </a>
                         
                         
                                                 </div>
@@ -62,7 +71,7 @@
                                                 <input type="submit" name="commit" value="Go" class="routing_go">
                                                 </div>
                                                 <div class="line">
-                                                    <a class="reverse_directions">Reverse Directions</a>
+                                                    <a class="reverse_directions" href="#">Reverse Directions</a>
                         
                                                 </div>
                                                 <div class="loader_copy">
@@ -94,27 +103,55 @@
                                 </header>
 
 
-                    </div>
-                    <div id="mapid"  style="height: 1800px;">
+                    </div> -->
+                    <div id="mapid"  style="height: 800px;">
                         <script src="OpenLayers.js"></script>
                         <script>
-                            var mymap = L.map('mapid').setView([-1.1986,36.7503], 13);
+                            var map = L.map('mapid').fitWorld();
                             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia2VybmFlbCIsImEiOiJjanAxcGx3MTgzNndrM3dwaHh0dzBpMXFqIn0.mGDyWnOIyQBL4ACrIVmBCQ', {
                                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                                 maxZoom: 18,
                                 id: 'mapbox.streets',
                                 accessToken: 'pk.eyJ1Ijoia2VybmFlbCIsImEiOiJjanAxcGx3MTgzNndrM3dwaHh0dzBpMXFqIn0.mGDyWnOIyQBL4ACrIVmBCQ'
-                            }).addTo(mymap);
+                            }).addTo(map);
+                            new L.Control.GeoSearch({
+                                searchLabel: 'The search string',
+                                notFoundMessage: 'Not found',
+                                position: 'topcenter',
+                                showMarker: true,
+                                selected: 0,
+                                providers: [{name:'GISFile', provider: new L.GeoSearch.Provider.GISFile( {type:'layer', name:'world'})},
+                                {name:'Google', provider: new L.GeoSearch.Provider.Google()},
+                                {name:'OpenStreetMap', provider: new L.GeoSearch.Provider.OpenStreetMap()}]
+                            }).addTo(map);
                             var popup = L.popup();
     
                             function onMapClick(e) {
                                 popup
                                     .setLatLng(e.latlng)
                                     .setContent("You clicked the map at " + e.latlng.toString())
-                                    .openOn(mymap);
+                                    .openOn(map);
                             }
     
-                            mymap.on('click', onMapClick);
+                            map.on('click', onMapClick);
+
+                            map.locate({setView: true, maxZoom: 18});
+                            function onLocationFound(e) {
+                                var radius = e.accuracy / 2;
+
+                                L.marker(e.latlng).addTo(map)
+                                    .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+                                L.circle(e.latlng, radius).addTo(map);
+                            }
+
+                            map.on('locationfound', onLocationFound);
+
+                            
+
+                        
+
+                            
                         </script>
                         
 
