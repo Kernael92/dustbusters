@@ -1,1 +1,0 @@
-pod 'MapboxNavigation', '~> 0.25.0'
