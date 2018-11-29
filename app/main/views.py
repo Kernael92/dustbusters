@@ -4,11 +4,14 @@ from . import main
 
 @main.route('/')
 def index():
-    title='Home-Mama Safi'
+    title='Home-Clean club'
 
     return render_template('index.html',title=title)
 
-if __name__=='__main__':
-    app.run()
+@main.route('/about')
+def about():
+    title='About Us- Clean club'
+    return render_template('about.html',title=title)
+
 
 
