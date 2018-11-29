@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  {{ super() }}
+  <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static',filename='index.css') }}" type='text/css'>
+{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+      <h1 class='head typing'>Welcome home...</h1>
+      <div id="meet-our-team"></div>
+    </div><br><br><br><br>  
+  </header>
+  <div class="jumbotron"> 
+    <div class="header">
+      <div class="container">
+        <div class="col-md-12 bg-white">
+        <h1 class='title animate-pop-in'><span class='name'>Clean Club</span> <br class="visible-lg "/> A connection hub to employers and cleaning service providers</h1>
+        
+        </div>
+        <hr style="width:25%;text-align:left;margin:30px 0; border:2.5px solid rgb(22, 21, 21);"/>
+        <div class="col-md-8 bg-white">
+        <h2 class="subtitle animate-pop-in">We get you connected to the service. Yes, you don't need to hustle <br> get it all under one roof.</h2>
+        </div> 
+      </div>
+    </div>
+  </div><br><br>
+  <footer class="container-fluid footer bg-dark" height=''>
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2"><br><br>
+            <a class='pl-10' href="https://twitter.com/"><img class='pl-10' src="../static/images/twitter.png" height="40" alt=""></a>
+            <a class='pl-10' href="https://en-gb.facebook.com/login/"><img class='pl-10' src="../static/images/fb.png" height='40' alt=""></a>
+            <a class='pl-10' href="https://ke.linkedin.com/"><img class='pl-10' src="../static/images/link.png" height="40" alt=""></a>
+            <a class='pl pl-10' href="https://www.instagram.com/accounts/login/?hl=en"><img class=' pl bg-white pl-10' src="../static/images/instagram.png" height="40" alt=""></a>
+        </div>
+        <div class="col-md-4"></div>
+      </div><br>
+        <div class="container text-white text-center">© 2018 Clean Club. All rights reserved.</div>
+      </footer>
+{% endblock %}
