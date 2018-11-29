@@ -3567,6 +3567,7 @@
   animation-play-state: unset;
   -webkit-animation-duration: 3s;
   animation-duration: 3s;
+  /* animation-iteration-count:infinite; */
 }
 .animated.hover2{
   -webkit-animation-play-state: running;
@@ -3574,7 +3575,7 @@
   -webkit-animation-duration: 4s;
   animation-duration: 4s;
 }
-h1{
+.container{
   margin-top: 50px;
 }
 .animated.hover3{
@@ -3637,6 +3638,16 @@ h1{
 .animated.slower {
   -webkit-animation-duration: 3s;
   animation-duration: 3s;
+}
+body{
+  background: url('https://images.pexels.com/photos/1475938/pexels-photo-1475938.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+.bg-white{
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 @media (prefers-reduced-motion) {
