@@ -1,0 +1,135 @@
+body {
+  
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+html {
+	position: relative;
+	min-height: 100%;
+}
+h1, h2 {
+	font-family: cursive; font-weight:700;
+	text-transform: uppercase;
+  letter-spacing: 2px
+  font-size 30px;
+}
+p {
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif; font-weight:300;
+
+	letter-spacing: 1px
+}
+header {
+	background: rgb(55, 60, 71);
+  padding: 10px 0;
+  color:white;
+}
+.bg-white{
+  border-radius:10px;
+}
+.head{
+  position:relative;
+  top:50px;
+}
+.jumbotron {
+	width: 100%;
+	min-height: 450px;
+	background: url('https://images.pexels.com/photos/1475938/pexels-photo-1475938.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center center;
+	background-size: cover;
+	opacity: 1;
+	display: table;
+	width: 100%;
+	position: relative;
+	border-radius: 0px;
+	color: black;
+	text-transform: uppercase;
+	margin: 0;
+	-webkit-clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 85%);
+  clip-path: url(#poly);
+	overflow: hidden;
+}
+.jumbotron h1 {
+	font-size: 50px;
+}
+.name{
+  font-family: 'Bevan', cursive;
+  text-decoration:underline;
+  color:#3f3e3e;
+}
+.jumbotron h2 {
+  font-size: 25px;
+  font-weight: bolder;
+	margin: 0;
+}
+footer {
+	color: #999;
+	position: relative;
+	background: rgba(26,29,37,1);
+	left: 0;
+	bottom: 1px;
+	width: 100%;
+	padding: 10px 0;
+  font-size: 18px;
+  margin-bottom: 1px;
+}
+/* animation */
+.animate-pop-in {
+  animation: pop-in 3s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
+}
+  .title {
+    animation-delay: 2s;
+  }
+  .subtitle {
+    /* margin-bottom: 5rem; */
+    text-transform: uppercase;
+  animation-delay: 2.2s;
+}
+/* animations */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-30rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* #animation for header */
+.typing{
+  overflow:hidden;
+  white-space:nowrap;
+  width:10.5em;
+  animation: type 4s steps(30),blink 2s linear infinite; 
+  margin-left:28%;padding:0;
+  border-right: .1em solid;
+}
+
+@keyframes type{
+  from{width:0}
+}
+@keyframes blink{
+  0%,100%{border-color:transparent}
+  50%{border-color:transparent}
+}
+/* media query */
+@media (min-width: 320px) and (max-width: 480px) {
+.jumbotron {
+	min-height: 460px;
+	padding: 5px 15px;
+}
+.jumbotron h1 {
+	font-size: 30px;
+}
+.jumbotron h2 {
+	font-size: 16px;
+}
+} 
+@media only screen and (max-width:991px) and (min-width:768px){
+  h1.typing{
+    font-size:40px;
+  }
+  .typing{
+    margin-left:20%;
+  }
+}
